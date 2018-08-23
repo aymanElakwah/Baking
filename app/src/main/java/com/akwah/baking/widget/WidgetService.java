@@ -14,13 +14,13 @@ import com.akwah.baking.Utils;
 import com.akwah.baking.details.RecipeActivity;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class WidgetService extends RemoteViewsService {
 
     public static final String ID_KEY = "id_key";
+
 
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
@@ -35,7 +35,7 @@ class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
     private Context mContext;
     private ArrayList<Recipe> mRecipes;
 
-    public WidgetFactory(Context context, int appWidgetId) {
+    WidgetFactory(Context context, int appWidgetId) {
         mContext = context;
         mAppWidgetId = appWidgetId;
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(mContext);
@@ -97,6 +97,7 @@ class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
         views.setTextViewText(R.id.widget_recipe_name, recipe.getName());
         Intent intent = new Intent();
         intent.putExtra(RecipeActivity.RECIPE_KEY, recipe);
+        intent.putExtra(WidgetWorkService.APP_WIDGET_ID, mAppWidgetId);
         views.setOnClickFillInIntent(R.id.widget_item, intent);
         return views;
     }
@@ -121,3 +122,4 @@ class WidgetFactory implements RemoteViewsService.RemoteViewsFactory {
         return true;
     }
 }
+

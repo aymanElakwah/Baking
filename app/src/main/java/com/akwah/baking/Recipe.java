@@ -134,6 +134,11 @@ public class Recipe implements Parcelable {
             parcel.writeString(measure);
             parcel.writeString(ingredient);
         }
+
+        @Override
+        public String toString() {
+            return getIngredient() + " (" + getQuantity() + " " + getMeasure() + ")";
+        }
     }
 
     public static class Step implements Parcelable{

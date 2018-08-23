@@ -29,7 +29,7 @@ public class IngredientsRecyclerViewAdapter extends RecyclerView.Adapter<Ingredi
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mIdView.setText(String.valueOf(position + 1));
         Recipe.Ingredient ingredient = mIngredients.get(position);
-        holder.mContentView.setText(ingredient.getIngredient() + " (" + ingredient.getQuantity() + " " + ingredient.getMeasure() + ")");
+        holder.mContentView.setText(ingredient.toString());
     }
 
     @Override

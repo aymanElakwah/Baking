@@ -5,4 +5,5 @@
     <color name="colorAccent">#8b7fc7</color>
     <color name="selected_item">#d5fffc</color>
     <color name="widget_color">#a6a9a9</color>
+    <color name="widget_ingredients_background">#ffffff</color>
 </resources>
